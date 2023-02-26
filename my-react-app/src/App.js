@@ -1,13 +1,13 @@
-import './App.css';
-import FlashCardContainer from './components/FlashCardContainer';
-import NavbarWrapper from './components/NavbarWrapper';
+import { RouterProvider } from "react-router-dom";
+import "./App.css";
+import GetRoutes from "./components/Shared/DefineRoutes";
+
 
 function App() {
+
   return (
     <div className="App">
-      <NavbarWrapper/>
-      <h1>Hello World!</h1>
-      <FlashCardContainer />
+      <RouterProvider router={GetRoutes()} />
     </div>
   );
 }
