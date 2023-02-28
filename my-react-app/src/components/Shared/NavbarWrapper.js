@@ -9,6 +9,8 @@ function NavbarWrapper() {
         <Link to={'dashboard'}> Dashboard</Link>
         <Link to={'explore'}> Explore</Link>
         <Link to={'learn'}> Learn</Link>
+        <Link to={'login'}> Login</Link>
+        <Link to={'signup'}> Sign up</Link>
       </Container>
     </Navbar>
   );
