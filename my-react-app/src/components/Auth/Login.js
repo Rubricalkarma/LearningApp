@@ -3,6 +3,7 @@ import { useState } from "react";
 import { auth } from "../../firebase";
 import {
   createUserWithEmailAndPassword,
+  signInWithCredential,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import Button from "react-bootstrap/Button";

@@ -6,6 +6,7 @@ import Explore from "../Explore/Explore";
 import Learn from "../Learn/Learn";
 import Layout from "../Shared/Layout";
 import Welcome from "../Welcome/Welcome";
+import Create from "../Create/Create";
 
 export default function GetRoutes() {
   const router = createBrowserRouter([
@@ -36,6 +37,10 @@ export default function GetRoutes() {
         {
           path: "signup",
           element: <Signup />
+        },
+        {
+          path: "create",
+          element: <Create />
         }
       ],
     },

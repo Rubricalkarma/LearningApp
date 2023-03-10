@@ -2,14 +2,21 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
-import { auth} from "../../firebase";
+import { auth } from "../../firebase";
 import { signOut } from "firebase/auth";
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useEffect } from "react";
 
 function NavbarWrapper() {
 
 const [user, loading, error] = useAuthState(auth);
 var isLoggedIn = user != null
+
+
+// useEffect(async () => {
+// var token = await user.getIdToken()
+// console.log(token);
+// },[])
 
   return (
     <Navbar bg="dark">
