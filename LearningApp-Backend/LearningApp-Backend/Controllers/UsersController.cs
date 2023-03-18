@@ -37,20 +37,14 @@ namespace LearningApp_Backend.Controllers
             return Ok(user);
         }
 
-        [Route("/addUser")]
-        [HttpPost]
+        [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> AddUser([FromBody] User user)
+        public async Task<IActionResult> CheckDisplayNameAvalability(string displayName)
         {
-            try
-            {
-                await _usersManager.CreateUser(user);
-            } catch (Exception ex)
-            {
-                return new BadRequestObjectResult(ex.Message);
-            }
 
-            return new OkResult();
+
+
+            return Ok();
         }
 
         [Route("/test")]
