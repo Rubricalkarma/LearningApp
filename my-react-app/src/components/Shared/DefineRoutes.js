@@ -6,7 +6,7 @@ import Explore from "../Explore/Explore";
 import Learn from "../Learn/Learn";
 import Layout from "../Shared/Layout";
 import Welcome from "../Welcome/Welcome";
-import Create from "../Create/Create";
+import Create from "../Create/Create.tsx";
 import Profile from "../Profile/Profile.tsx";
 import { getUser } from "../Service/UserService";
 

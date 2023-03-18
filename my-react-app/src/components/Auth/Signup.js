@@ -1,7 +1,5 @@
 import Container from "react-bootstrap/Container";
 import { useState } from "react";
-import { auth } from "../../firebase"
-import { createUserWithEmailAndPassword } from "firebase/auth"
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
@@ -9,7 +7,6 @@ import Col from "react-bootstrap/Col";
 import { useNavigate } from "react-router-dom";
 import { createNewUser } from "../Service/AuthenticationService.tsx";
 import * as yup from "yup"
-import { InputGroup } from "react-bootstrap";
 
 import { Formik } from "formik";
 
@@ -23,7 +20,7 @@ export default function Signup() {
   const schema = yup.object().shape({
     displayName: yup.string().required("Display name is required"),
     email: yup.string().email("Invalid Email").required("Email is required"),
-    password: yup.string().required("Password is required")
+    password: yup.string().min(5, "Password must be at least 5 characters").required("Password is required")
   })
 
   async function onSubmit(e) {
@@ -73,9 +70,7 @@ export default function Signup() {
               name="displayName"
               value={values.displayName}
               onChange={handleChange}
-              isValid={touched.displayName && !errors.displayName}
               isInvalid={!!errors.displayName}/>
-              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
               <Form.Control.Feedback type="invalid">Invalid</Form.Control.Feedback>
             </Form.Group>
             </Row>
@@ -87,8 +82,8 @@ export default function Signup() {
               name="email"
               value={values.email}
               onChange={handleChange}
-              isValid={touched.email && !errors.email}/>
-              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+              isInvalid={!!errors.email}/>
+              <Form.Control.Feedback type="invalid">{errors.email}</Form.Control.Feedback>
             </Form.Group>
             </Row>
             <Row className="justify-content-center">
@@ -99,8 +94,8 @@ export default function Signup() {
               name="password"
               value={values.password}
               onChange={handleChange}
-              isValid={touched.password && !errors.password}/>
-              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+              isInvalid={!!errors.password}/>
+              <Form.Control.Feedback type="invalid">{errors.password}</Form.Control.Feedback>
             </Form.Group>
             </Row>
             <Row className="justify-content-center">
